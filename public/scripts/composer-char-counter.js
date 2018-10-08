@@ -16,7 +16,6 @@ $(document).ready(function () {
       $(".counter").css("color","black");
     }
   }
-
   //set default at 140 
   $(".counter").text(count);
   //everytime character is added or removed 
