@@ -1,0 +1,40 @@
+.container .new-tweet {
+  background-clip: content-box;
+  margin: 2em;
+  background-color: lightgrey;
+  text-align: center;
+  border-radius: 10px;
+  border: 1.5px solid grey;
+}
+
+.container form {
+  /* empty */
+  padding: 10px;
+}
+.container h2 {
+  display: inline-block;
+  width: 95%;
+  border-bottom: 1px solid black;
+  text-align: left;
+}
+
+.container textarea {
+  display: inline-block;
+  width: 100%;
+}
+
+.container .flex {
+
+  display: flex; 
+  justify-content: space-between;
+}
+
+.container input {
+  left: 0px;
+  float: left;
+}
+
+.container .counter {
+  left: 0px;
+  float: right;
+}

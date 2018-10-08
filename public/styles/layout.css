@@ -30,6 +30,7 @@ body {
  */
 
 .container {
+  padding-top: 80px;
   margin: 0 auto;
   text-align: center;
   top: 80px;

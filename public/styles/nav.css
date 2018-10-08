@@ -1,5 +1,4 @@
 #nav-bar {
-  position: absolute;
   top: 0%;
   height: 80px;
   width: 100%;
@@ -8,7 +7,6 @@
   padding-left: 2em;
   padding-right: 2em;
   line-height: 80px;
-
 }
 
 #nav-bar .logo {
