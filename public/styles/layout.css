@@ -38,3 +38,7 @@ body {
   width: 450px;
   background-color: white;
 }
+
+#tweet-container {
+  margin-top: 35px;
+}

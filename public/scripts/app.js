@@ -5,56 +5,68 @@
  */
 $(document).ready(function () {
 
-  var array = [{
-    "user": {
-      "name": "Johann von Goethe",
-      "avatars": {
-        "small": "https://vanillicon.com/d55cf8e18b47d4baaf60c006a0de39e1_50.png",
-        "regular": "https://vanillicon.com/d55cf8e18b47d4baaf60c006a0de39e1.png",
-        "large": "https://vanillicon.com/d55cf8e18b47d4baaf60c006a0de39e1_200.png"
-      },
-      "handle": "@johann49"
-    },
-    "content": {
-      "text": "Es ist nichts schrecklicher als eine tätige Unwissenheit."
-    },
-    "created_at": 1461113796368
-  }];
-
-  /* <section class="tweet">
-          <h2></h2>
-          <form method="POST" action="/tweets/">
-            <textarea name="text" placeholder="What are you humming about?"></textarea>
-            <div class="flex" >
-              <input type="submit" value="Tweet">
-              <span class="counter"></span>
-            </div>
-          </form>
-        </section> */
   /**
    * function will iterate through db and posts all tweets to main page
    */
-  function tweeter(array) {
-    const name = array[0]["user"]["name"];
-    const avatar = array[0]["user"]["avatars"]["small"];
-    const handle = array[0]["user"]["handle"];
-    const tweet = array[0]["content"]["text"];
-    const date = new Date(array[0]["created_at"]).toString("").split(" ").splice(0, 5).join(" ");
+  function tweeter(index) {
+    const name = index["user"]["name"];
+    const avatar = index["user"]["avatars"]["small"];
+    const handle = index["user"]["handle"];
+    const tweet = index["content"]["text"];
+    const date = new Date(index["created_at"]).toString("").split(" ").splice(0, 5).join(" ");
 
-    $("#tweet-container").append("<section class='tweet-box' ></section>");
-    // making header with avatar, user name, and handle.
-    $(".tweet-box").append("<header class='tweet-header' ></header>");
-    $(".tweet-header").append(`<img class='avatar' src=${avatar} >`);
-    $(".tweet-header").append(`<h2 class='user' >${name}</h2>`);
-    $(".tweet-header").append(`<h2 class='handle' >${handle}</h2>`);
-    // making article
-    $(".tweet-box").append("<article class='middle-content' ></article>");
-    $(".middle-content").append(`<h2 class='tweet' >${tweet}</h2>`);
-    // making footer
-    $(".tweet-box").append("<footer class='tweet-footer' ></footer>");
-    $(".tweet-footer").append(`<h2 class='date' >${date}</h2>`);
+    // make main tweet box
+    const $tweetBox = $("<section>").addClass("tweet-box");
 
+    //header
+    const $tweetHeader = $("<header>").addClass("tweet-header");
+    $($tweetHeader).appendTo($tweetBox);
+    const $avatar = $("<img>").attr("src", avatar).addClass("avatar").text(avatar);
+    $($avatar).appendTo($tweetHeader);
+    const $user = $("<h2>").addClass("user").text(name);
+    $($user).appendTo($tweetHeader);
+    const $handle = $("<h2>").addClass("handle").text(handle);
+    $($handle).appendTo($tweetHeader);
+
+    //middle 
+    const $middleContent = $("<article>").addClass("middle-content");
+    $($middleContent).appendTo($tweetBox);
+    const $tweet = $("<h2>").addClass("tweet").text(tweet);
+    $($tweet).appendTo($middleContent);
+
+    //footer
+    const $tweetFooter = $("<footer>").addClass("tweet-footer");
+    $($tweetFooter).appendTo($tweetBox);
+    const $date = $("<h2>").addClass("date").text(date);
+    $($date).appendTo($tweetFooter);
+
+    $($tweetBox).appendTo("#tweet-container");
   }
 
-  tweeter(array);
+  // tweeter();
+  $(".tweet-box").mouseover(function () {
+    $(this).css({
+      "border": "1.7px solid rgba(128, 128, 128, 1)"
+    });
+    $(".tweet-header").css({
+      "opacity": "1"
+    });
+  });
+
+  $(".tweet-box").mouseleave(function () {
+    $(this).css({
+      "border": "1.7px solid rgba(128, 128, 128, 0.3)"
+    });
+    $(".tweet-header").css({
+      "opacity": "0.6"
+    });
+  });
+
+  $.getJSON("/tweets", function (data) {
+    data.forEach((element) => {
+      tweeter(element);
+    });
+  });
+
+
 });

@@ -44,11 +44,11 @@
   margin: 2em;
   text-align: center;
   border-radius: 10.5px;
-  border: 1.7px solid rgba(128, 128, 128, 1.0);
+  border: 1.7px solid rgba(128, 128, 128, 0.3);
 }
 
 /* header */
-.tweet-header {
+.tweet-box .tweet-header {
   border-top-right-radius: 10px;
   border-top-left-radius: 10px;
   background-color: rgba(211, 211, 211, 0.7);
@@ -58,49 +58,50 @@
   height: 65px;
   display: flex;
   align-items: flex-start;
-  opacity: 1;
+  opacity: 0.6;
 }
-.avatar {
+.tweet-box .tweet-header .avatar {
   border-radius: 8px;
   margin: 7px;
   margin-right: 10px;
   float: left;
 }
-.user {
+.tweet-box .tweet-header .user {
   margin-top: 9px;
   float: left;
   font-size: 20px;
 }
-.handle {
+.tweet-box .tweet-header .handle {
+  margin-left: auto;
+  margin-right: 10px;
   width: auto;
-  margin-top: 12px;
-  margin-left: 87px;
-  float: left;
+  float: right;
   font-size: 15px;
   color: grey;
   font-weight: 300;
 }
 
 /* middle content */
-.middle-content {}
+.tweet-box .middle-content {
+  opacity: 1;
+}
 
-.tweet {
+.tweet-box .middle-content .tweet {
   font-size: 18px;
   font-weight: 500;
 }
 
 /* footer */
-.tweet-footer {
+.tweet-box .tweet-footer {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
   border-top: 1px solid rgba(128, 128, 128, 0.5);
 }
-.date {
+.tweet-box .tweet-footer .date {
   margin-left: 10px; 
   align-items: flex-start;
   font-size: 12px;
   font-weight: 500;
 }
-
 /* ////////////////////////////////////////////////////////////////////////////////// */
