@@ -8,7 +8,7 @@ $(document).ready(function () {
   /**
    * function will iterate through db and posts all tweets to main page
    */
-  function tweeter(index) {
+  function createTweetElement(index) {
     const name = index["user"]["name"];
     const avatar = index["user"]["avatars"]["small"];
     const handle = index["user"]["handle"];
@@ -62,26 +62,37 @@ $(document).ready(function () {
     });
   });
 
+  function renderTweets(tweets) {
+    // loops through tweets
+    tweets.forEach((element) => {
+      // calls createTweetElement for each tweet
+      // takes return value and appends it to the tweets container
+      createTweetElement(element);
+    });
+  }
+
   // Ajax post call for posting tweets 
-  $( "#container-form" ).submit(function(event) {
+  $("#container-form").submit(function (event) {
     $.ajax({
       type: "POST",
       url: "/tweets",
       data: $(this).serialize(),
       success: (obj) => {
-        tweeter(obj);
+        createTweetElement(obj);
       }
     });
     event.preventDefault();
   });
 
-  
 
-  $.getJSON("/tweets", function (data) {
-    data.forEach((element) => {
-      tweeter(element);
+  /*
+  * loads current tweets in db when page is loaded
+  */  
+  function loadTweets() {
+    $.getJSON("/tweets", function (data) {
+      renderTweets(data);
     });
-  });
-
+  }
+  loadTweets();
 
 });
