@@ -33,19 +33,20 @@
 
   <!-- Page-specific (main) content here -->
   <main class="container">
+
     <section class="new-tweet">
-      <h2>Compose Tweet</h2>
-      <form method="POST" action="/tweets/">
-        <textarea name="text" placeholder="What are you humming about?"></textarea>
-        <div class="flex" >
-          <input type="submit" value="Tweet">
+      <h2 id="compose" >Compose Tweet</h2>
+      <form id="container-form" method="POST" action="/tweets/">
+        <textarea id="container-textarea" name="text" placeholder="What are you humming about?"></textarea>
+        <div id="flex" >
+          <input id="container-input" type="submit" value="Tweet">
           <span class="counter"></span>
         </div>
       </form>
     </section>
 
     <main id="tweet-container">
-
+      
     </main>
 
   </main>

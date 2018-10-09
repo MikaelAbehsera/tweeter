@@ -22,5 +22,4 @@ $(document).ready(function () {
   $(".container textarea").on("input", countCharacters);
 
 
-
 });
