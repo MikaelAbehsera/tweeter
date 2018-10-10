@@ -44,24 +44,23 @@ $(document).ready(function () {
   }
 
   // opacity hover feature 
-  $(".tweet-box").mouseover(function () {
+  $("#tweet-container").on("mouseover", ".tweet-box", function () {
     $(this).css({
       "border": "1.7px solid rgba(128, 128, 128, 1)"
     });
-    $(".tweet-header").css({
+    $(this).find(".tweet-header").css({
       "opacity": "1"
     });
-  });
-
-  $(".tweet-box").mouseleave(function () {
+  }).on("mouseleave", ".tweet-box", function () {
     $(this).css({
       "border": "1.7px solid rgba(128, 128, 128, 0.3)"
     });
-    $(".tweet-header").css({
+    $(this).find(".tweet-header").css({
       "opacity": "0.6"
     });
   });
 
+  
   function renderTweets(tweets) {
     // loops through tweets
     tweets.forEach((element) => {

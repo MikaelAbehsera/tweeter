@@ -5,6 +5,7 @@
   text-align: center;
   border-radius: 10px;
   border: 1.5px solid rgba(128, 128, 128, 1.0);
+  overflow: hidden;
 }
 .container #compose {
   display: inline-block;
