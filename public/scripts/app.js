@@ -73,21 +73,46 @@ $(document).ready(function () {
 
   // Ajax post call for posting tweets 
   $("#container-form").submit(function (event) {
-    $.ajax({
-      type: "POST",
-      url: "/tweets",
-      data: $(this).serialize(),
-      success: (obj) => {
-        createTweetElement(obj);
+    const temp = $("textarea");
+    if (temp.val().length >= 140 || temp.val() === "" || temp.val() === null || temp.val() === " ") {
+      console.log("error");
+      let error;
+      if (temp.val().length >= 140) {
+        error = "Tweet is too long!";
+      } else {
+        error = "Tweets can not be empty!";
       }
-    });
+      $(".error-message").text(error);
+      $(".error-message").animate({
+        "margin-top": "0em",
+        height: "50px",
+        margin: "1em",
+        color: "red"
+      }, 500);
+      //check for type of error
+    } else {
+      if(!(temp.val().length >= 140 || temp.val() === "" || temp.val() === null || temp.val() === " ")) {
+        $(".error-message").animate({
+          height: "0px",
+        }, 500);
+        $(".error-message").text("");
+      }
+      $.ajax({
+        type: "POST",
+        url: "/tweets",
+        data: $(this).serialize(),
+        success: (obj) => {
+          createTweetElement(obj);
+        }
+      });
+    }
     event.preventDefault();
   });
 
 
   /*
-  * loads current tweets in db when page is loaded
-  */  
+   * loads current tweets in db when page is loaded
+   */
   function loadTweets() {
     $.getJSON("/tweets", function (data) {
       renderTweets(data);
