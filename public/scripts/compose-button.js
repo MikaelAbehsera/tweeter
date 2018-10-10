@@ -14,8 +14,7 @@ $(document).ready(function () {
   });
 
   $("#compose-button").on("click", () => {
-    $(".new-tweet").children().toggle("slow", () => {
-    });
+    $(".new-tweet").slideToggle("slow");
   });
 
 });
