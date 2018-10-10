@@ -91,12 +91,6 @@ $(document).ready(function () {
       }, 500);
       //check for type of error
     } else {
-      if(!(temp.val().length >= 140 || temp.val() === "" || temp.val() === null || temp.val() === " ")) {
-        $(".error-message").animate({
-          height: "0px",
-        }, 500);
-        $(".error-message").text("");
-      }
       $.ajax({
         type: "POST",
         url: "/tweets",
@@ -109,7 +103,17 @@ $(document).ready(function () {
     event.preventDefault();
   });
 
-
+  //check on input if error can be removed
+  function removeError() {
+    const temp = $("textarea");
+    if (!(temp.val().length >= 140 || temp.val() === "" || temp.val() === null || temp.val() === " ")) {
+      $(".error-message").animate({
+        height: "0px",
+      }, 500);
+      $(".error-message").text("");
+    }
+  }
+  $(".container #container-textarea").on("input", removeError);
   /*
    * loads current tweets in db when page is loaded
    */
