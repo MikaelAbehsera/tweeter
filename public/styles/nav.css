@@ -28,7 +28,7 @@
 
 #nav-bar #compose-button {
   margin-left: auto;
-  margin-right: 385px;
+  margin-right: unset;
   border-radius: 5px;
   border: 1px solid black;
   height: 60px;

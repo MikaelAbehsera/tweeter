@@ -70,20 +70,26 @@ $(document).ready(function () {
     });
   }
 
+  function error(content) {
+    let error = "";
+    if (content.length >= 140) {
+      error = "Tweet is too long!";
+    } else if(content === "" || content === null || content === " ") {
+      error = "Tweets can not be empty!";
+    }
+    return error;
+  }
+
   // Ajax post call for posting tweets 
   $("#container-form").submit(function (event) {
     const temp = $("textarea");
-    if (temp.val().length >= 140 || temp.val() === "" || temp.val() === null || temp.val() === " ") {
+    const content = temp.val();
+    const errorMessage = error(content);
+
+    if (errorMessage) {
       console.log("error");
-      let error;
-      if (temp.val().length >= 140) {
-        error = "Tweet is too long!";
-      } else {
-        error = "Tweets can not be empty!";
-      }
-      $(".error-message").text(error);
+      $(".error-message").text(errorMessage);
       $(".error-message").animate({
-        "margin-top": "0em",
         height: "50px",
         margin: "1em",
         color: "red"
