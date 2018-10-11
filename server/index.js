@@ -32,7 +32,7 @@ MongoClient.connect(MONGODB_URI, (err, db) => {
 
   // Mount the tweets routes at the "/tweets" path prefix:
   app.use("/tweets", tweetsRoutes);
-  // db.close();
+  db.close();
 });
 
 

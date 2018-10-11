@@ -6,8 +6,7 @@ module.exports = function makeDataHelpers(db) {
 
     // Saves a tweet to `db`
     saveTweet: function (newTweet, callback) {
-      db.collection("tweets").insertOne(newTweet);
-      callback(null, true);
+      db.collection("tweets").insert(newTweet, callback);
     },
 
     // Get all tweets in `db`, sorted by newest first
@@ -15,7 +14,5 @@ module.exports = function makeDataHelpers(db) {
       // const sortNewestFirst = (a, b) => a.created_at - b.created_at;
       db.collection("tweets").find().toArray(callback);
     }
-
-
   };
 };
