@@ -60,7 +60,7 @@ $(document).ready(function () {
     });
   });
 
-  
+
   function renderTweets(tweets) {
     // loops through tweets
     tweets.forEach((element) => {
@@ -74,7 +74,7 @@ $(document).ready(function () {
     let error = "";
     if (content.length >= 140) {
       error = "Tweet is too long!";
-    } else if(content === "" || content === null || content === " ") {
+    } else if (content === "" || content === null || content === " ") {
       error = "Tweets can not be empty!";
     }
     return error;
@@ -82,43 +82,47 @@ $(document).ready(function () {
 
   // Ajax post call for posting tweets 
   $("#container-form").submit(function (event) {
-    const temp = $("textarea");
+    const temp = $("#container-textarea");
     const content = temp.val();
     const errorMessage = error(content);
 
     if (errorMessage) {
-      console.log("error");
-      $(".error-message").text(errorMessage);
-      $(".error-message").animate({
+      $(".error-message").text(errorMessage).animate({
         height: "50px",
         margin: "1em",
         color: "red"
       }, 500);
       //check for type of error
     } else {
-      $.ajax({
-        type: "POST",
-        url: "/tweets",
-        data: $(this).serialize(),
-        success: (obj) => {
-          createTweetElement(obj);
-        }
-      });
+      //check on input if error can be removed
+      if ((temp.val().length > 140 || temp.val() === "" || temp.val() === null || temp.val() === " ")) {
+        $(".error-message").animate({
+          height: "0px",
+        }, 500);
+      } else {
+        $.ajax({
+          type: "POST",
+          url: "/tweets",
+          data: $(this).serialize(),
+          success: (obj) => {
+            createTweetElement(obj);
+          }
+        });
+        //reset error and textarea and collapse compose box 
+        temp.val("");
+        $(".error-message").text("");
+        $(".error-message").animate({
+          height: "0px",
+          margin: "0em",
+        }, 500);
+        $(".new-tweet").slideUp("slow");
+        $("#container-textarea").focus();
+      }
     }
     event.preventDefault();
   });
 
-  //check on input if error can be removed
-  function removeError() {
-    const temp = $("textarea");
-    if (!(temp.val().length >= 140 || temp.val() === "" || temp.val() === null || temp.val() === " ")) {
-      $(".error-message").animate({
-        height: "0px",
-      }, 500);
-      $(".error-message").text("");
-    }
-  }
-  $(".container #container-textarea").on("input", removeError);
+
   /*
    * loads current tweets in db when page is loaded
    */
@@ -128,5 +132,6 @@ $(document).ready(function () {
     });
   }
   loadTweets();
+
 
 });

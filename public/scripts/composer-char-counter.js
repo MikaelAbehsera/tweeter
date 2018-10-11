@@ -10,16 +10,18 @@ $(document).ready(function () {
     let input = event.target.value.length;
     let currentCount = count - input;
     $(".counter").text(currentCount);
-    if(currentCount < 0) {
-      $(".counter").css("color","red");
+    if (currentCount < 0) {
+      $(".counter").css("color", "red");
     } else {
-      $(".counter").css("color","black");
+      $(".counter").css("color", "black");
     }
   }
   //set default at 140 
   $(".counter").text(count);
   //everytime character is added or removed 
   $(".container #container-textarea").on("input", countCharacters);
+
+
 
 
 });
