@@ -1,8 +1,3 @@
-/*
- * Client-side JS logic goes here
- * jQuery is already loaded
- * Reminder: Use (and do all your DOM work in) jQuery's document ready function
- */
 $(document).ready(function () {
 
   /**
@@ -60,7 +55,10 @@ $(document).ready(function () {
     });
   });
 
-
+  /**
+   * Will loop through an array of tweets and run createTweetElement on all of theme
+   * @param {*} tweets an array of tweets
+   */
   function renderTweets(tweets) {
     // loops through tweets
     tweets.forEach((element) => {
@@ -70,6 +68,10 @@ $(document).ready(function () {
     });
   }
 
+  /**
+   * will check input content for errors, if any present, it will return a error message to display
+   * @param {*} content input content 
+   */
   function error(content) {
     let error = "";
     if (content.length >= 140) {
@@ -95,7 +97,7 @@ $(document).ready(function () {
       //check for type of error
     } else {
       //check on input if error can be removed
-      if ((temp.val().length > 140 || temp.val() === "" || temp.val() === null || temp.val() === " ")) {
+      if ((temp.val().length > 140 || temp.val() === "" || temp.val() === null || temp.val() === " " | !temp.val())) {
         $(".error-message").animate({
           height: "0px",
         }, 500);
@@ -108,7 +110,7 @@ $(document).ready(function () {
             createTweetElement(obj);
           }
         });
-        //reset error and textarea and collapse compose box 
+        //reset error message and textarea and collapse compose box on submit
         temp.val("");
         $(".error-message").text("");
         $(".error-message").animate({
@@ -122,7 +124,6 @@ $(document).ready(function () {
     event.preventDefault();
   });
 
-
   /*
    * loads current tweets in db when page is loaded
    */
@@ -132,6 +133,4 @@ $(document).ready(function () {
     });
   }
   loadTweets();
-
-
 });
