@@ -1,0 +1,197 @@
+/*
+ * http://www.paulirish.com/2012/box-sizing-border-box-ftw/
+ * https://css-tricks.com/international-box-sizing-awareness-day/
+ * Do not modify these two selectors, please
+ */
+html {
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+/*
+ * Global layout stuff
+ */
+body {
+  margin: 0;
+  color: #244751;
+  background-color: #eee;
+  font-family: "Roboto Condensed", sans-serif;
+}
+
+/*
+ * Additional CSS can be defined below or in other CSS files, as per instructions
+ */
+.container {
+  padding-top: 5px;
+  margin: 0 auto;
+  text-align: center;
+  top: 0px;
+  height: 100%;
+  width: 450px;
+  background-color: white;
+}
+
+#tweet-container {
+  margin-top: 35px;
+}
+
+#nav-bar {
+  top: 0%;
+  height: 80px;
+  width: 100%;
+  background-color: #00a087;
+  color: #e8fdff;
+  padding-left: 2em;
+  padding-right: 2em;
+  line-height: 80px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+#nav-bar #logo {
+  float: left;
+  width: 80px;
+  height: 80px;
+}
+#nav-bar #header {
+  vertical-align: middle;
+  float: left;
+  height: 100%;
+  padding-left: 10px;
+  font-size: 3.5vw;
+}
+#nav-bar #compose-button {
+  margin-left: auto;
+  margin-right: unset;
+  border-radius: 5px;
+  border: 1px solid black;
+  height: 60px;
+  width: 110px;
+  font-size: 19px;
+  font-weight: 400;
+  line-height: 60px;
+  vertical-align: middle;
+  text-align: right;
+  color: #00a087;
+  opacity: 0.8;
+}
+
+.container .new-tweet {
+  background-clip: content-box;
+  margin: 2em;
+  background-color: lightgray;
+  text-align: center;
+  border-radius: 10px;
+  border: 1.5px solid gray;
+  overflow: hidden;
+}
+.container #compose {
+  display: inline-block;
+  width: 95%;
+  border-bottom: 1px solid black;
+  text-align: left;
+  margin-bottom: 0.5em;
+}
+.container .container-form {
+  padding: 10px;
+}
+.container .error-message {
+  margin-top: 0em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 0px;
+  margin: 0em;
+  background-color: #FF4B3E;
+  border-radius: 10px;
+}
+.container #container-textarea {
+  display: inline-block;
+  width: 90%;
+}
+.container #flex {
+  display: flex;
+  justify-content: space-between;
+  margin-left: 5%;
+  margin-right: 5%;
+  margin-top: 1%;
+  margin-bottom: 2%;
+  width: 90%;
+}
+.container #container-input {
+  left: 0px;
+  float: left;
+}
+.container .counter {
+  left: 0px;
+  float: right;
+}
+
+.tweet-box {
+  background-clip: content-box;
+  margin: 2em;
+  text-align: center;
+  border-radius: 10.5px;
+  border: 1.7px solid rgba(128, 128, 128, 0.3);
+}
+.tweet-box .tweet-header {
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+  background-color: rgba(211, 211, 211, 0.7);
+  margin-left: 0.5px;
+  margin-right: 0.5px;
+  width: 99.7%;
+  height: 65px;
+  display: flex;
+  align-items: flex-start;
+  opacity: 0.6;
+}
+.tweet-box .tweet-header .avatar {
+  border-radius: 8px;
+  margin: 7px;
+  margin-right: 10px;
+  float: left;
+}
+.tweet-box .tweet-header .user {
+  margin-top: 9px;
+  float: left;
+  font-size: 20px;
+}
+.tweet-box .tweet-header .handle {
+  margin-left: auto;
+  margin-right: 10px;
+  width: auto;
+  float: right;
+  font-size: 15px;
+  color: grey;
+  font-weight: 300;
+}
+.tweet-box .middle-content {
+  opacity: 1;
+}
+.tweet-box .middle-content .tweet {
+  word-wrap: break-word;
+  font-size: 18px;
+  font-weight: 500;
+}
+.tweet-box .tweet-footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  border-top: 1px solid rgba(128, 128, 128, 0.5);
+}
+.tweet-box .tweet-footer .date {
+  margin-left: 10px;
+  align-items: flex-start;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+/* ////////////////////////////////////////////////////////////////////////////////// */
+
+/*# sourceMappingURL=base.css.map */
