@@ -1,0 +1,137 @@
+.container {
+
+  .new-tweet {
+    background-clip: content-box;
+    margin: 2em;
+    background-color: rgba(211, 211, 211, 1);
+    text-align: center;
+    border-radius: 10px;
+    border: 1.5px solid rgba(128, 128, 128, 1.0);
+    overflow: hidden;
+  }
+
+  #compose {
+    display: inline-block;
+    width: 95%;
+    border-bottom: 1px solid black;
+    text-align: left;
+    margin-bottom: 0.5em;
+  }
+
+  .container-form {
+    padding: 10px;
+  }
+
+  .error-message {
+    margin-top: 0em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 0px;
+    margin: 0em;
+    background-color: #FF4B3E;
+    border-radius: 10px;
+  }
+
+  #container-textarea {
+    display: inline-block;
+    width: 90%;
+  }
+
+  #flex {
+    display: flex;
+    justify-content: space-between;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-top: 1%;
+    margin-bottom: 2%;
+
+    width: 90%;
+  }
+
+  #container-input {
+    left: 0px;
+    float: left;
+  }
+
+  .counter {
+    left: 0px;
+    float: right;
+  }
+}
+
+.tweet-box {
+  background-clip: content-box;
+  margin: 2em;
+  text-align: center;
+  border-radius: 10.5px;
+  border: 1.7px solid rgba(128, 128, 128, 0.3);
+}
+
+.tweet-box {
+  .tweet-header {
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    background-color: rgba(211, 211, 211, 0.7);
+    margin-left: 0.5px;
+    margin-right: 0.5px;
+    width: 99.7%;
+    height: 65px;
+    display: flex;
+    align-items: flex-start;
+    opacity: 0.6;
+  }
+
+  .tweet-header {
+    .avatar {
+      border-radius: 8px;
+      margin: 7px;
+      margin-right: 10px;
+      float: left;
+    }
+    .user {
+      margin-top: 9px;
+      float: left;
+      font-size: 20px;
+    }
+    .handle {
+      margin-left: auto;
+      margin-right: 10px;
+      width: auto;
+      float: right;
+      font-size: 15px;
+      color: grey;
+      font-weight: 300;
+    }
+  }
+
+  /* middle content */
+  .middle-content {
+    opacity: 1;
+  }
+  .middle-content {
+    .tweet {
+      word-wrap: break-word;
+      font-size: 18px;
+      font-weight: 500;
+    }
+  }
+
+  /* footer */
+  .tweet-footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    border-top: 1px solid rgba(128, 128, 128, 0.5);
+  }
+  .tweet-footer {
+    .date {
+      margin-left: 10px;
+      align-items: flex-start;
+      font-size: 12px;
+      font-weight: 500;
+    }
+  }
+}
+
+/* ////////////////////////////////////////////////////////////////////////////////// */

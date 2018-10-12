@@ -20,8 +20,4 @@ $(document).ready(function () {
   $(".counter").text(count);
   //everytime character is added or removed 
   $(".container #container-textarea").on("input", countCharacters);
-
-
-
-
 });
