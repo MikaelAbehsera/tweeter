@@ -19,6 +19,12 @@ This repository is the starter code for the project: Students will fork and clon
 -- users can like there own tweets which they should not be allowed to.
 
 
+## What the app currently looks like
+
+![full page](https://github.com/MikaelAbehsera/tweeter/blob/master/docs/fullpage.png)
+
+![main-section](https://github.com/MikaelAbehsera/tweeter/blob/master/docs/main-section.png)
+
 ## Dependencies
 
 - Express
