@@ -109,6 +109,7 @@ $(document).ready(function () {
     const temp = $("#container-textarea");
     const content = temp.val();
     const errorMessage = error(content);
+    event.preventDefault();
 
     if (errorMessage) {
       $(".error-message").text(errorMessage).animate({
@@ -144,7 +145,6 @@ $(document).ready(function () {
         $(".container #container-textarea").text(140);
       }
     }
-    event.preventDefault();
   });
 
   //get heart
@@ -160,5 +160,4 @@ $(document).ready(function () {
     });
   }
   loadTweets();
-
 });

@@ -55,20 +55,7 @@ module.exports = function(DataHelpers) {
       }
     });
   });
-
-  tweetsRoutes.post("/:id/removeLike", function (req, res) {
-    const id =  req.params.id;
-    DataHelpers.addLike(id,(err) => {
-      if (err) {
-        res.status(500).json({
-          error: err.message
-        });
-      } else {
-        res.sendStatus(201);
-      }
-    });
-  });
-
+  
   return tweetsRoutes;
 
 };
