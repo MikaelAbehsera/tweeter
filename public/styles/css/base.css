@@ -80,7 +80,9 @@ body {
   color: #00a087;
   opacity: 0.8;
 }
-
+#nav-bar #compose-button i {
+  margin-right: 5px; 
+}
 .container .new-tweet {
   background-clip: content-box;
   margin: 2em;
