@@ -47,16 +47,14 @@ $(document).ready(function () {
     $heart.on("click", function (event) {
       // make an ajax call to add 1 to likes
       const id = $(event.target).closest(".tweet-box")[0].dataset.id;
-      console.log("You liked ==>  ", id);
       $.ajax({
         type: "POST",
         url: "/tweets/" + id + "/addLike",
-        success: (obj) => {
+        success: () => {
           event.target.innerText = parseInt(event.target.innerText) + 1;
         }
       });
     });
-
   }
 
   // opacity hover feature 
@@ -143,6 +141,7 @@ $(document).ready(function () {
         }, 500);
         $(".new-tweet").slideUp("slow");
         $("#container-textarea").focus();
+        $(".container #container-textarea").text(140);
       }
     }
     event.preventDefault();
