@@ -4,14 +4,19 @@ $(document).ready(function () {
    * function will iterate through db and posts all tweets to main page
    */
   function createTweetElement(index) {
+    const id = index["_id"].toString();
     const name = index["user"]["name"];
     const avatar = index["user"]["avatars"]["small"];
     const handle = index["user"]["handle"];
     const tweet = index["content"]["text"];
     const date = new Date(index["created_at"]).toString("").split(" ").splice(0, 5).join(" ");
+    const likes = index["likes"];
+
 
     // make main tweet box
     const $tweetBox = $("<section>").addClass("tweet-box");
+    $tweetBox[0].dataset.id = id;
+    
 
     //header
     const $tweetHeader = $("<header>").addClass("tweet-header");
@@ -34,8 +39,24 @@ $(document).ready(function () {
     $($tweetFooter).appendTo($tweetBox);
     const $date = $("<h2>").addClass("date").text(date);
     $($date).appendTo($tweetFooter);
+    const $heart = $("<i>").addClass("fas fa-heart").text(likes);
+    $($heart).appendTo($tweetFooter);
 
     $($tweetBox).prependTo("#tweet-container");
+
+    $heart.on("click", function (event) {
+      // make an ajax call to add 1 to likes
+      const id = $(event.target).closest(".tweet-box")[0].dataset.id;
+      console.log("You liked ==>  ", id);
+      $.ajax({
+        type: "POST",
+        url: "/tweets/" + id + "/addLike",
+        success: (obj) => {
+          event.target.innerText = parseInt(event.target.innerText) + 1;
+        }
+      });
+    });
+
   }
 
   // opacity hover feature 
@@ -53,6 +74,9 @@ $(document).ready(function () {
     $(this).find(".tweet-header").css({
       "opacity": "0.6"
     });
+
+
+    
   });
 
   /**
@@ -124,6 +148,10 @@ $(document).ready(function () {
     event.preventDefault();
   });
 
+  //get heart
+  // use dom trav to go to tweet box and grab data-tweet-id
+
+
   /*
    * loads current tweets in db when page is loaded
    */
@@ -133,4 +161,5 @@ $(document).ready(function () {
     });
   }
   loadTweets();
+
 });

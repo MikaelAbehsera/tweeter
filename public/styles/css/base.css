@@ -191,7 +191,17 @@ body {
   font-size: 12px;
   font-weight: 500;
 }
-
+.tweet-box .tweet-footer i {
+  margin-top: 9px;
+  margin-right: 10px;
+  margin-left: auto;
+}
+.tweet-box .tweet-footer i:hover {
+  margin-top: 9px;
+  margin-right: 10px;
+  margin-left: auto;
+  color: #00a087;
+}
 /* ////////////////////////////////////////////////////////////////////////////////// */
 
 /*# sourceMappingURL=base.css.map */

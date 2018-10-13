@@ -12,7 +12,6 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(express.static("public"));
 
-//grab db 
 const {MongoClient} = require("mongodb");
 const MONGODB_URI = "mongodb://localhost:27017/tweeter";
 
