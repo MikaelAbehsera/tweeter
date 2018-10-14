@@ -1,3 +1,7 @@
+### heroku link
+
+app is hosted on heroku: https://aqueous-brook-16872.herokuapp.com/
+
 # Tweeter Project
 
 Tweeter is a simple, single-page Twitter clone.
