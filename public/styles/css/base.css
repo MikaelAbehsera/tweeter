@@ -26,7 +26,7 @@ body {
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */
-.container {
+#container {
   padding-top: 5px;
   margin: 0 auto;
   text-align: center;
@@ -83,7 +83,7 @@ body {
 #nav-bar #compose-button i {
   margin-right: 5px; 
 }
-.container .new-tweet {
+#container #new-tweet {
   background-clip: content-box;
   margin: 2em;
   background-color: lightgray;
@@ -92,17 +92,17 @@ body {
   border: 1.5px solid gray;
   overflow: hidden;
 }
-.container #compose {
+#container #compose {
   display: inline-block;
   width: 95%;
   border-bottom: 1px solid black;
   text-align: left;
   margin-bottom: 0.5em;
 }
-.container .container-form {
+#container #container-form {
   padding: 10px;
 }
-.container .error-message {
+#container .error-message {
   margin-top: 0em;
   display: flex;
   align-items: center;
@@ -112,11 +112,11 @@ body {
   background-color: #FF4B3E;
   border-radius: 10px;
 }
-.container #container-textarea {
+#container #container-textarea {
   display: inline-block;
   width: 90%;
 }
-.container #flex {
+#container #flex {
   display: flex;
   justify-content: space-between;
   margin-left: 5%;
@@ -125,11 +125,11 @@ body {
   margin-bottom: 2%;
   width: 90%;
 }
-.container #container-input {
+#container #container-input {
   left: 0px;
   float: left;
 }
-.container .counter {
+#container .counter {
   left: 0px;
   float: right;
 }

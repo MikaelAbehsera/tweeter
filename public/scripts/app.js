@@ -140,9 +140,9 @@ $(document).ready(function () {
           height: "0px",
           margin: "0em",
         }, 500);
-        $(".new-tweet").slideUp("slow");
+        $("#new-tweet").slideUp("slow");
         $("#container-textarea").focus();
-        $(".container #container-textarea").text(140);
+        $("#container #new-tweet .counter").text(140);
       }
     }
   });

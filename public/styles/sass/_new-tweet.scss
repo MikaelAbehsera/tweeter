@@ -1,5 +1,5 @@
-.container {
-  .new-tweet {
+#container {
+  #new-tweet {
     background-clip: content-box;
     margin: 2em;
     background-color: rgba(211, 211, 211, 1);
@@ -17,7 +17,7 @@
     margin-bottom: 0.5em;
   }
 
-  .container-form {
+  #container-form {
     padding: 10px;
   }
 

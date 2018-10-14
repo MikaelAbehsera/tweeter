@@ -14,7 +14,7 @@ $(document).ready(function () {
   });
 
   $("#compose-button").on("click", () => {
-    $(".new-tweet").slideToggle("slow");
+    $("#new-tweet").slideToggle("slow");
     $("#container-textarea").focus();
   });
 

@@ -19,5 +19,5 @@ $(document).ready(function () {
   //set default at 140 
   $(".counter").text(count);
   //everytime character is added or removed 
-  $(".container #container-textarea").on("input", countCharacters);
+  $("#container #container-textarea").on("input", countCharacters);
 });
