@@ -4,3 +4,7 @@ node_modules/
 .vscode
 tweets.json
 mongo_example.js
+/node_modules
+npm-debug.log
+.DS_Store
+/*.env

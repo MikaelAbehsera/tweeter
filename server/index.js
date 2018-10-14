@@ -2,7 +2,7 @@
 
 // Basic express setup:
 
-const PORT = 8080;
+let port = process.env.PORT;
 const express = require("express");
 const bodyParser = require("body-parser");
 const app = express();
@@ -12,7 +12,9 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(express.static("public"));
 
-const {MongoClient} = require("mongodb");
+const {
+  MongoClient
+} = require("mongodb");
 const MONGODB_URI = "mongodb://localhost:27017/tweeter";
 
 MongoClient.connect(MONGODB_URI, (err, db) => {
@@ -33,7 +35,11 @@ MongoClient.connect(MONGODB_URI, (err, db) => {
   app.use("/tweets", tweetsRoutes);
 });
 
+//setup for heroku hosting 
+if (port == null || port == "") {
+  port = 8080;
+}
+app.listen(port, () => {
 
-app.listen(PORT, () => {
-  console.log("Example app listening on port " + PORT);
+  console.log("Example app listening on port " + port);
 });
